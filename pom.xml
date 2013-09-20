@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.pl</groupId>
 	<artifactId>mytest</artifactId>
-	<name>test</name>
+	<name>mytest</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+		<org.springframework-version>3.1.3.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -24,7 +24,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				</exclusion>
+				 </exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -32,9 +32,14 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
+				
 		<!-- AspectJ -->
-
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>	
+		
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -77,40 +82,14 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>1.2.0</version>
-		</dependency>
-		<!-- <dependency> <groupId>org.mybatis</groupId> <artifactId>mybatis-spring</artifactId> 
-			<version>1.0.0-RC2</version> </dependency> -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.26</version>
-		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.1_3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.7.3</version>
-		</dependency>
+
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-
+				
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -129,7 +108,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+	
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -143,52 +122,149 @@
 			<version>3.2.3.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.2.2</version>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.26</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.6.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.8.1</version>
+			<version>1.6.2</version>
 		</dependency>
+		<dependency>
+	<groupId>antlr</groupId>
+	<artifactId>antlr</artifactId>
+	<version>2.7.7</version>
+</dependency>
+<dependency>
+	<groupId>aopalliance</groupId>
+	<artifactId>aopalliance</artifactId>
+	<version>1.0</version>
+</dependency>
+
+<dependency>
+	<groupId>cglib</groupId>
+	<artifactId>cglib</artifactId>
+	<version>2.1_3</version>
+</dependency>		
+<dependency>
+	<groupId>commons-fileupload</groupId>
+	<artifactId>commons-fileupload</artifactId>
+	<version>1.3</version>
+</dependency>
+<dependency>
+	<groupId>commons-logging</groupId>
+	<artifactId>commons-logging</artifactId>
+	<version>1.0.4</version>
+</dependency>
+<dependency>
+	<groupId>commons-pool</groupId>
+	<artifactId>commons-pool</artifactId>
+	<version>1.6</version>
+</dependency>
+<dependency>
+	<groupId>commons-lang</groupId>
+	<artifactId>commons-lang</artifactId>
+	<version>2.4</version>
+</dependency>
+<dependency>
+	<groupId>dom4j</groupId>
+	<artifactId>dom4j</artifactId>
+	<version>1.6.1</version>
+</dependency>
+<dependency>
+	<groupId>jaxen</groupId>
+	<artifactId>jaxen</artifactId>
+	<version>1.1.4</version>
+</dependency>
+<dependency>
+	<groupId>com.novell.ldap</groupId>
+	<artifactId>jldap</artifactId>
+	<version>2009-10-07</version>
+</dependency>
+<dependency>
+	<groupId>javax.faces</groupId>
+	<artifactId>jsf-api</artifactId>
+	<version>1.2_04</version>
+</dependency>
+<dependency>
+	<groupId>javax.faces</groupId>
+	<artifactId>jsf-impl</artifactId>
+	<version>1.2_04</version>
+</dependency>
+<dependency>
+	<groupId>ch.qos.logback</groupId>
+	<artifactId>logback-classic</artifactId>
+	<version>1.0.13</version>
+</dependency>
+<dependency>
+	<groupId>jsptags</groupId>
+	<artifactId>pager-taglib</artifactId>
+	<version>2.0</version>
+</dependency>
+
+
+
+
+
+
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<additionalProjectnatures>
-						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-					</additionalProjectnatures>
-					<additionalBuildcommands>
-						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-					</additionalBuildcommands>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<compilerArgument>-Xlint:all</compilerArgument>
-					<showWarnings>true</showWarnings>
-					<showDeprecation>true</showDeprecation>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<configuration>
-					<mainClass>org.test.int1.Main</mainClass>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

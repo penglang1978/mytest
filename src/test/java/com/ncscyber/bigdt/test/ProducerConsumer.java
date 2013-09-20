@@ -15,9 +15,8 @@ public class ProducerConsumer {
 			} else {
 				System.out.println("Add Product!");
 				product = 1;
-				notifyAll();// 唤醒消费者
-			}
-		}
+				notifyAll();//		}
+	 	} }
 	}
 
 	public void getProduct() {
@@ -32,9 +31,8 @@ public class ProducerConsumer {
 			} else {
 				System.out.println("Get Product!");
 				product = 0;
-				notifyAll();// 通知生产者
-			}
-		}
+				notifyAll();// 閫氱煡鐢熶骇鑰�			}
+		}}
 	}
 
 	public static void main(String[] args) {
