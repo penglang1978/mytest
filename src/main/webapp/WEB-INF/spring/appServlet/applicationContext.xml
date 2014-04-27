@@ -1,48 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:aop="http://www.springframework.org/schema/aop" 
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
 						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
-	default-autowire="byType">
+        >
 	<import resource="applicationContext-bean.xml"/>
 	
 	<!-- ============================== 数据库配置 ==================================== -->
 	<!-- 数据源配置 -->
 	<bean name="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName">
-			<value>com.mysql.jdbc.Driver</value>
-		</property>
-		<property name="url">
-			<!-- value>jdbc:mysql://localhost:3306/</value -->
-			<value>jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=UTF-8</value>
-		</property>
-		<property name="username">
-			<value>root</value>
-		</property>
-		<property name="password">
-			<value></value>
-		</property>
-	</bean>
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+        p:url="jdbc:mysql://127.0.0.1:3306/foo;" p:username="root"
+        p:password="root" p:driverClassName="com.mysql.jdbc.Driver"/>
 	
 	<!-- ================================ MyBatis SqlSession配置 ========================================= -->
 	<!-- 使用SqlSessionFactoryBean工厂产生SqlSession对象，方便后期注入Dao -->
-	<bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" name="SqlFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis_config/Configuration.xml"></property>
+		<property name="configLocation" value="classpath:mybatis_config/Configuration.xml"/>
 			</bean>
 
 	<!-- 注册Mapper方式二：也可不指定特定mapper，而使用自动扫描包的方式来注册各种Mapper ，配置如下：-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
- 		<property name="sqlSessionFactory"  ref="SqlSessionFactory" />
+ 		<property name="sqlSessionFactoryBeanName" value="SqlFactory" />
 		<property name="basePackage" value="com.pl.mytest.dao" />
 	</bean>
 	<!-- ================================= 事务控制相关 ============================================= -->
    	<bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">   
-    	<property name="dataSource" ref="dataSource"></property>
+    	<property name="dataSource" ref="dataSource"/>
  	</bean>   
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>

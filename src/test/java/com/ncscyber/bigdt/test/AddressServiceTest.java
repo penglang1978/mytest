@@ -26,7 +26,7 @@ public class AddressServiceTest {
 		u.setUid(1L);
 		addr.setAddress("beijing");
 		addr.setPostCode("100000");
-//		addr.setAid(100L);
+		addr.setAid(100L);
 		addr.setUser(u);
 //		Map<String,Object> map = new HashMap<String,Object>();
 //		map.put("address", addr);
