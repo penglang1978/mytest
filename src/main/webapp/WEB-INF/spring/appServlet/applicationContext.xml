@@ -13,19 +13,19 @@
 	<!-- 数据源配置 -->
 	<bean name="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-        p:url="jdbc:mysql://127.0.0.1:3306/foo;" p:username="root"
+        p:url="jdbc:mysql://127.0.0.1:3306/foo" p:username="root"
         p:password="root" p:driverClassName="com.mysql.jdbc.Driver"/>
 	
 	<!-- ================================ MyBatis SqlSession配置 ========================================= -->
 	<!-- 使用SqlSessionFactoryBean工厂产生SqlSession对象，方便后期注入Dao -->
 	<bean id="sqlSessionFactory" name="SqlFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis_config/Configuration.xml"/>
-			</bean>
+		<property name="configLocation" value="classpath:mybatis_confi/Configuration.xml"/>
+        <!--<property name="mapperLocations" value="classpath:mybatis_confi/*.xml" />-->
+	</bean>
 
 	<!-- 注册Mapper方式二：也可不指定特定mapper，而使用自动扫描包的方式来注册各种Mapper ，配置如下：-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
- 		<property name="sqlSessionFactoryBeanName" value="SqlFactory" />
 		<property name="basePackage" value="com.pl.mytest.dao" />
 	</bean>
 	<!-- ================================= 事务控制相关 ============================================= -->

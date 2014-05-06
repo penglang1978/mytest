@@ -33,7 +33,8 @@
 	-->
 	
 	<mappers>
-		<mapper resource="Address.xml"/>
-		<mapper resource="User.xml"/>
+        <mapper resource="mybatis_confi/Address.xml"/>
+        <mapper resource="mybatis_confi/User.xml"/>
+        <!--<mapper class="classpath:mybatis_confi/Address.xml" />-->
 	</mappers>
 </configuration>
